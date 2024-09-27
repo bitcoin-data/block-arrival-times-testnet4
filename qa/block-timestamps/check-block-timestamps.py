@@ -6,7 +6,7 @@ import statistics
 
 BLOCK_TIMESTAMP_FILE = "qa/block-timestamps/block-timestamps.csv"
 ARRIVAL_TIMESTAMP_FILE = "timestamps.csv"
-MAX_DEVIATION_MS = 1000 * 60 * 60 * 2  # 2h
+MAX_DEVIATION_MS = 1000 * 60 * 60 * 2 + 1000 * 60 # 2h 1min (1 min to not fail on slight clock differences)
 
 print("Checking that timestamps don't deviate too much from block header timestamps")
 
