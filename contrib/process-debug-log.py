@@ -8,7 +8,7 @@ import re
 UPDATE_TIP = "UpdateTip: new best="
 TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%SZ"  # ISO 8601
 MIN_PROGRESS = float(0.99999)
-MAX_TIME_DELTA = datetime.timedelta(hours=1)
+MAX_TIME_DELTA = datetime.timedelta(hours=2)
 DESCRIPTION = "Parses a Bitcoin Core debug.log file and prints the block arrival times in CSV format."
 
 
