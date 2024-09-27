@@ -1,0 +1,22 @@
+name: Quality assurance
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Generate combined CSV file
+      run: python3 contrib/combine.py
+    - name: Sanity checks
+      run: ./qa/sanity-checks/sanity-check.sh
+    - name: Block timestamp offset checks
+      run: python3 qa/block-timestamps/check-block-timestamps.py
+    - name: Check gantt graph up-to-date
+      run: ./qa/data-availability/chech-graph-uptodate.sh
